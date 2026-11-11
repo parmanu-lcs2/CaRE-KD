@@ -76,6 +76,16 @@ def test_tau_schedule():
 
 
 if __name__ == "__main__":
-    import pytest
-
-    raise SystemExit(pytest.main([__file__, "-v"]))
+    # Plain runner: works without pytest (and avoids broken third-party pytest
+    # plugins in some environments, e.g. an omegaconf/get_ref_type mismatch).
+    tests = [(k, v) for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
+    failed = 0
+    for name, fn in tests:
+        try:
+            fn()
+            print(f"PASS  {name}")
+        except Exception as exc:  # noqa: BLE001
+            failed += 1
+            print(f"FAIL  {name}: {type(exc).__name__}: {exc}")
+    print(f"\n{len(tests) - failed}/{len(tests)} passed")
+    raise SystemExit(1 if failed else 0)

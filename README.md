@@ -63,11 +63,16 @@ python train.py \
     --output_dir runs/gpt2xl_to_gpt2
 ```
 
-Unit tests for the method maths (no downloads):
+Unit tests for the method maths (no model downloads):
 
 ```bash
-pytest tests/test_carekd.py
+python tests/test_carekd.py          # plain runner, no pytest needed
+pytest tests/test_carekd.py          # or via pytest
 ```
+
+If pytest fails on import with an unrelated third-party plugin error (e.g. an
+`omegaconf` / `get_ref_type` mismatch from another package in your env), skip
+plugin auto-loading: `PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 pytest tests/test_carekd.py`.
 
 ## Key hyperparameters (paper naming)
 
