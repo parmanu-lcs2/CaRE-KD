@@ -1,0 +1,10 @@
+torch>=2.1
+transformers>=4.44
+datasets>=2.18
+peft>=0.11
+accelerate>=0.30
+rouge-score>=0.1.2
+numpy>=1.24
+tqdm>=4.65
+sentencepiece>=0.1.99
+protobuf>=3.20

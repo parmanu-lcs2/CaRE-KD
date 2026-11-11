@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "carekd"
+version = "0.1.0"
+description = "CaRE-KD: Confidence-Aware Selective Distillation for LLMs (NeurIPS 2026)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Ayan Sengupta" },
+    { name = "Vaibhav Seth" },
+    { name = "Tanmoy Chakraborty" },
+]
+dependencies = [
+    "torch>=2.1",
+    "transformers>=4.44",
+    "datasets>=2.18",
+    "peft>=0.11",
+    "accelerate>=0.30",
+    "rouge-score>=0.1.2",
+    "numpy>=1.24",
+    "tqdm>=4.65",
+    "sentencepiece>=0.1.99",
+    "protobuf>=3.20",
+]
+
+[tool.setuptools]
+packages = ["carekd"]
